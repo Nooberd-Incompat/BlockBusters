@@ -1,5 +1,3 @@
-# Create the README.md content
-readme_content = """
 # Decentralized Rare Disease Registry
 
 ## Overview
@@ -104,17 +102,8 @@ Our platform provides a decentralized and secure environment for patients, resea
    \`\`\`
 5. Follow the detailed implementation guide in the documentation to set up and run all components.
 
-## Contributing
-
-We welcome contributions from the community. Please read our [contributing guidelines](CONTRIBUTING.md) for more information.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any queries or feedback, please reach out to us at [email@example.com].
+### Contact Us:
+For any queries or feedback, please reach out to us at [piyushjitendra.s22@iiits.in]
 """
 
 # Write the content to README.md file
