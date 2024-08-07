@@ -105,9 +105,3 @@ Our platform provides a decentralized and secure environment for patients, resea
 ### Contact Us:
 For any queries or feedback, please reach out to us at [piyushjitendra.s22@iiits.in]
 """
-
-# Write the content to README.md file
-with open("/mnt/data/README.md", "w") as file:
-    file.write(readme_content)
-
-"/mnt/data/README.md"
