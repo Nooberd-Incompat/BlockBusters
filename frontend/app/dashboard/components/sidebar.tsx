@@ -11,7 +11,9 @@ import PeopleAltTwoToneIcon from '@mui/icons-material/PeopleAltTwoTone';
 export default function Sidebar({ open }: { open: boolean }) {
     const listItems = [
         { text: 'Add New Record', icon: <AddCircleTwoToneIcon className="w-6 h-6" />, link: "/dashboard/add-record" },
+        { text: 'Doctor Query', icon: <AddCircleTwoToneIcon className="w-6 h-6" />, link: "/dashboard/doctor-query" },
         { text: 'My Records', icon: <ArticleTwoToneIcon className="w-6 h-6" />, link: "/dashboard/records" },
+        { text: 'Profile', icon: <AddCircleTwoToneIcon className="w-6 h-6" />, link: "/dashboard/patient-profile" }
 
     ];
 
