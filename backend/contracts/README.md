@@ -28,60 +28,11 @@ Our platform provides a decentralized and secure environment for patients, resea
 - **Research Collaboration**: Platform for proposing, voting, and funding research projects.
 - **Community Building**: Forums and chat features for decentralized social interactions.
 
-## Implementation Guide
-
-1. **Set Up Development Environment**
-   - Install Node.js, npm, and Truffle framework
-   - Set up a local blockchain (e.g., Ganache) for testing
-
-2. **Design and Develop Smart Contracts**
-   - Create Registry, Identity, and Data Sharing contracts using Solidity
-   - Test contracts thoroughly using Truffle
-
-3. **Implement IPFS Integration**
-   - Set up IPFS node
-   - Develop functions to store and retrieve data from IPFS
-
-4. **Develop Backend Services**
-   - Set up Node.js server with Express.js
-   - Implement API endpoints for interacting with smart contracts and IPFS
-   - Integrate OrbitDB for decentralized database functionality
-
-5. **Create Frontend Application**
-   - Set up React.js project
-   - Implement user interface for data submission, retrieval, and community features
-   - Integrate Web3.js for blockchain interactions
-
-6. **Implement Security Measures**
-   - Set up MetaMask integration for user authentication
-   - Implement encryption/decryption for sensitive data
-
-7. **Develop Community Features**
-   - Implement forums and chat using OrbitDB
-
-8. **Testing and Quality Assurance**
-   - Conduct thorough testing of all components
-   - Perform security audits
-
-9. **Deployment**
-   - Deploy smart contracts to Ethereum mainnet or a suitable testnet
-   - Deploy backend to a cloud provider (e.g., AWS, Google Cloud)
-   - Deploy frontend to a hosting service (e.g., Netlify, Vercel)
-
-10. **Documentation and Training**
-    - Create user guides and API documentation
-    - Develop training materials for different user roles
-
-11. **Launch and Maintenance**
-    - Soft launch to a limited user base
-    - Gather feedback and iterate
-    - Implement a system for ongoing maintenance and updates
-
 ## How to Run the Project
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/your-repo/decentralized-rare-disease-registry.git
+   git clone https://github.com/Nooberd-Incompat/BlockBusters.git
    \`\`\`
 2. Navigate to the project directory:
    \`\`\`bash
@@ -96,6 +47,14 @@ Our platform provides a decentralized and secure environment for patients, resea
    npm start
    \`\`\`
 5. Follow the detailed implementation guide in the documentation to set up and run all components.
+
+| Step                | Description                                                                                                                                                                                                                                 |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **User Registration** | - User creates an account in the web2 client application, providing personal information (e.g., name, email). <br> - Web2 application stores user's information in the web2 database. <br> - User connects Ethereum wallet to web2 application. <br> - Web2 application associates user's Ethereum address with their account in the web2 database. |
+| **File Upload**       | - User selects a file to share and uploads it to IPFS. <br> - IPFS node returns an IPFS hash for the uploaded file. <br> - Web2 application sends the IPFS hash and user's Ethereum address to the smart contract (uploadFile function). <br> - Smart contract stores IPFS hash, associating it with user's Ethereum address. <br> - Web2 application stores file metadata in the web2 database, associated with the user's account. |
+| **Access Request**    | - Another user initiates an access request through the web2 application. <br> - Web2 application retrieves IPFS hash of the file from the database and requester's Ethereum address. <br> - Web2 application calls hasAccess function on the smart contract. <br> - Smart contract checks if the requester has access and returns the result to the web2 application. <br> - If access is denied, web2 application stores the access request in the database and notifies the file owner. |
+| **Access Granting**   | - File owner reviews the access request through the web2 application. <br> - Web2 application retrieves access request details from the database. <br> - Web2 application calls grantAccess function on the smart contract. <br> - Smart contract updates access control mapping, granting the requester access to the file. <br> - Web2 application updates the access request status in the database to "approved". |
+| **File Viewing**      | - Requester with granted access views the file through the web2 application. <br> - Web2 application retrieves IPFS hash from the database. <br> - Web2 application uses IPFS hash to retrieve file content from the IPFS network. <br> - Web2 application displays the file content to the user. |
 
 ### Contact Us:
 For any queries or feedback, please reach out to us at [piyushjitendra.s22@iiits.in]
