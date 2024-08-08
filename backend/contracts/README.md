@@ -77,11 +77,6 @@ Our platform provides a decentralized and secure environment for patients, resea
     - Gather feedback and iterate
     - Implement a system for ongoing maintenance and updates
 
-## Pre-Requisites for Round 1 Submission
-
-- **Presentation or Document**: Explaining the Problem Statement, Idea, Solution Approach, and Tech Stack
-- **Submission**: A GitHub repo link containing this README.md file with the project explanation and any additional documentation or slide links
-
 ## How to Run the Project
 
 1. Clone the repository:
