@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Web3 } = require('web3');
+const Web3 = require('web3');
 const { addFile, getFile } = require('./ipfs');
 const contract = require('@truffle/contract');
 const multer = require('multer');
 
+// Initialize the app and configure settings
 const app = express();
 const port = 3000;
 
 // Set up Web3 connection to the local blockchain (Ganache)
-const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
+const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 
 // Load the compiled smart contracts
 const Identity = contract(require('./build/contracts/Identity.json'));
@@ -22,18 +23,11 @@ DataSharing.setProvider(web3.currentProvider);
 
 // Middleware
 app.use(bodyParser.json());
-
-// API Endpoints
 const upload = multer();
 
-// Register a new disease
+// API Endpoints
 app.post('/registerDisease', upload.none(), async (req, res) => {
-    // const { name, description, fileContent, fromAddress } = req.body;
-    const name = req.body.name
-    const description = req.body.description
-    const fileContent = req.body.fileContent
-    const fromAddress = req.body.fromAddress
-    console.log(name, description, fileContent, fromAddress);
+    const { name, description, fileContent, fromAddress } = req.body;
     try {
         // Add file to IPFS
         const ipfsHash = await addFile(fileContent);
@@ -48,7 +42,6 @@ app.post('/registerDisease', upload.none(), async (req, res) => {
     }
 });
 
-// Retrieve a disease's data
 app.get('/getDisease/:id', async (req, res) => {
     const diseaseId = req.params.id;
 
@@ -65,7 +58,6 @@ app.get('/getDisease/:id', async (req, res) => {
     }
 });
 
-// Request access to disease data
 app.post('/requestAccess', async (req, res) => {
     const { diseaseId, fromAddress } = req.body;
 
@@ -79,7 +71,6 @@ app.post('/requestAccess', async (req, res) => {
     }
 });
 
-// Approve access to disease data
 app.post('/approveAccess', async (req, res) => {
     const { requestId, fromAddress } = req.body;
 

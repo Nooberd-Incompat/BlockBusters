@@ -1,29 +1,36 @@
-async function createIpfsClient() {
-    const IPFS = await import('ipfs-http-client');
-    return IPFS.create({ host: 'localhost', port: '5001', protocol: 'http' });
-}
+const axios = require('axios');
+const FormData = require('form-data');
 
-// Function to add a file to IPFS
+const IPFS_API_URL = 'http://localhost:5001/api/v0';
+
 async function addFile(fileContent) {
-    const ipfs = await createIpfsClient();
-    const { cid } = await ipfs.add(fileContent);
-    return cid.toString();
-}
+    try {
+        const form = new FormData();
+        form.append('file', fileContent);
 
-// Function to retrieve a file from IPFS
-async function getFile(cid) {
-    const ipfs = await createIpfsClient();
-    const stream = ipfs.cat(cid);
-    let data = '';
+        const response = await axios.post(`${IPFS_API_URL}/add`, form, {
+            headers: {
+                ...form.getHeaders()
+            }
+        });
 
-    for await (const chunk of stream) {
-        data += chunk.toString();
+        return response.data.Hash;
+    } catch (error) {
+        console.error('Failed to add file to IPFS:', error);
+        throw error;
     }
-
-    return data;
 }
 
-module.exports = {
-    addFile,
-    getFile,
-};
+async function getFile(ipfsHash) {
+    try {
+        const response = await axios.get(`${IPFS_API_URL}/cat/${ipfsHash}`, {
+            responseType: 'text'  // Ensure the response type is set to 'text'
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Failed to retrieve file from IPFS:', error);
+        throw error;
+    }
+}
+
+module.exports = { addFile, getFile };
