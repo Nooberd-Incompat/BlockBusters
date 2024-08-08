@@ -54,8 +54,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -89,8 +88,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -147,8 +145,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_identityContractAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"diseaseId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"submitter\",\"type\":\"address\"}],\"name\":\"DiseaseRegistered\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"diseaseCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"diseases\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"submitter\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_diseaseId\",\"type\":\"uint256\"}],\"name\":\"getDisease\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ipfsHash\",\"type\":\"string\"}],\"name\":\"registerDisease\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Registry.sol\":\"Registry\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Identity.sol\":{\"keccak256\":\"0x7fa406f7c4b63c616d9367b257cdf6836ab5ebb330572e31875c072101102d2c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b41f2477679487a87a47b010f5fbe27e33fe71875d40cf58b348bb4231401d2\",\"dweb:/ipfs/QmbYKBt9hjRPiDPhjb5tTuwbcS8fYb6acdbiufC6ZtUNMw\"]},\"project:/contracts/Registry.sol\":{\"keccak256\":\"0xdcf483ab26c5a9101ffcbdd610b6dd837dc2718b51a52ea526f4b7edc2585ce1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://afdf5482807b5ef4ac8012bb00ded7d59ea9bc98592faa7b6e740615264ee261\",\"dweb:/ipfs/Qmed2J9Yu2rASbCY4jfrFr8JpAMpfA64P31PAYXezqt5mk\"]}},\"version\":1}",
@@ -7368,8 +7365,7 @@
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-08-08T09:36:30.344Z",
-  "networkType": "ethereum",
+  "updatedAt": "2024-08-08T18:55:14.338Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

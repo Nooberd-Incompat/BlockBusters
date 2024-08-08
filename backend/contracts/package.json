@@ -1,7 +1,24 @@
 {
   "dependencies": {
+    "@truffle/contract": "^4.6.31",
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "ipfs-http-client": "^60.0.1"
-  }
+    "ipfs-http-client": "^60.0.1",
+    "multer": "^1.4.5-lts.1",
+    "web3": "^4.11.1"
+  },
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "The Decentralized Rare Disease Registry aims to leverage blockchain technology to create a secure, transparent, and efficient platform for managing and sharing rare disease data. This project combines Ethereum smart contracts, IPFS for decentralized storage, and OrbitDB for decentralized database functionality to create a robust and scalable solution for the rare disease community.",
+  "main": "ipfs.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
