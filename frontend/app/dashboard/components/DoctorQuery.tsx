@@ -18,6 +18,11 @@ const DoctorQuery: React.FC = () => {
       name: 'Michael Johnson',
       disease: 'Rare Neurological Disorder',
     },
+    {
+      id: 4,
+      name: 'Alex',
+      disease: 'Rare Bone Disorder',
+    },
   ]);
   const [filteredResults, setFilteredResults] = useState([]);
 
@@ -34,7 +39,7 @@ const DoctorQuery: React.FC = () => {
   };
 
   const handleRequestAccess = (patientId: number) => {
-    console.log(`Requested access for patient with ID: ${patientId}`);
+    alert(`Requested access for patient with ID: ${patientId}`);
   };
 
   return (
