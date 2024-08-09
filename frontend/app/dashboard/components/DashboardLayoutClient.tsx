@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Components
@@ -31,6 +31,41 @@ export default function Layout({ children, userAvatar, userName }: DashboardCont
     const handleDrawerToggle = () => {
         setOpen(!open);
     };
+
+    useEffect(() => {
+        const verifyUser = async () => {
+            const user_auth_token = localStorage.getItem('user_auth_token');
+            const authFormData = new FormData();
+            authFormData.append('user_auth_token', user_auth_token ?? '');
+    
+            try {
+                const response = await fetch('http://localhost:8000/auth/verify-user', {
+                    method: 'POST',
+                    body: authFormData,
+                });
+                
+                const data = await response.json();
+
+                // console.log(response.status)
+                // console.log(data.status, response.status)
+                if (data.status === 'failed') {
+                    window.location.href = '/register';
+                } else if (!response.ok) {
+                    window.alert('An unexpected error occurred.');
+                }
+            } catch (error) {
+                if (error instanceof Error) {
+                    window.alert(`Failed! ${error.message}`);
+                    console.error('Error submitting form:', error);
+                } else {
+                    console.error('Unexpected error:', error);
+                }
+            }
+        };
+    
+        verifyUser();
+    }, []);
+
 
     return (
         <>

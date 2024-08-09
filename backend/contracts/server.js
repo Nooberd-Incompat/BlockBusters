@@ -1,13 +1,42 @@
 const express = require('express');
+
+const cookieParser = require("cookie-parser");
+const mongoose = require("mongoose");
+
 const bodyParser = require('body-parser');
 const Web3 = require('web3');
 const { addFile, getFile } = require('./ipfs');
 const contract = require('@truffle/contract');
 const multer = require('multer');
+const cors = require("cors"); 
 
 // Initialize the app and configure settings
 const app = express();
-const port = 3000;
+const port = 8000;
+app.use(cookieParser());
+app.use(
+    cors({
+        origin: "http://localhost:3000", // This must be the origin of the client making the request
+        credentials: true, // This allows the server to accept cookies from the client
+    }),
+);
+
+// Connect to MongoDB
+mongoose
+    .connect(
+        //change the connection string as per your mongodb setup
+        "mongodb://sudip:sudiphalder@localhost:27017/?authMechanism=DEFAULT",
+        {
+            dbName: "web3ssh",
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        },
+    )
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err) => console.log(err));
+
+const authRoute = require("./auth");
+app.use("/auth", authRoute);
 
 // Set up Web3 connection to the local blockchain (Ganache)
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
