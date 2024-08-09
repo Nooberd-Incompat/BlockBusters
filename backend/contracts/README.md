@@ -28,60 +28,11 @@ Our platform provides a decentralized and secure environment for patients, resea
 - **Research Collaboration**: Platform for proposing, voting, and funding research projects.
 - **Community Building**: Forums and chat features for decentralized social interactions.
 
-## Implementation Guide
-
-1. **Set Up Development Environment**
-   - Install Node.js, npm, and Truffle framework
-   - Set up a local blockchain (e.g., Ganache) for testing
-
-2. **Design and Develop Smart Contracts**
-   - Create Registry, Identity, and Data Sharing contracts using Solidity
-   - Test contracts thoroughly using Truffle
-
-3. **Implement IPFS Integration**
-   - Set up IPFS node
-   - Develop functions to store and retrieve data from IPFS
-
-4. **Develop Backend Services**
-   - Set up Node.js server with Express.js
-   - Implement API endpoints for interacting with smart contracts and IPFS
-   - Integrate OrbitDB for decentralized database functionality
-
-5. **Create Frontend Application**
-   - Set up React.js project
-   - Implement user interface for data submission, retrieval, and community features
-   - Integrate Web3.js for blockchain interactions
-
-6. **Implement Security Measures**
-   - Set up MetaMask integration for user authentication
-   - Implement encryption/decryption for sensitive data
-
-7. **Develop Community Features**
-   - Implement forums and chat using OrbitDB
-
-8. **Testing and Quality Assurance**
-   - Conduct thorough testing of all components
-   - Perform security audits
-
-9. **Deployment**
-   - Deploy smart contracts to Ethereum mainnet or a suitable testnet
-   - Deploy backend to a cloud provider (e.g., AWS, Google Cloud)
-   - Deploy frontend to a hosting service (e.g., Netlify, Vercel)
-
-10. **Documentation and Training**
-    - Create user guides and API documentation
-    - Develop training materials for different user roles
-
-11. **Launch and Maintenance**
-    - Soft launch to a limited user base
-    - Gather feedback and iterate
-    - Implement a system for ongoing maintenance and updates
-
 ## How to Run the Project
 
 1. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/your-repo/decentralized-rare-disease-registry.git
+   git clone https://github.com/Nooberd-Incompat/BlockBusters.git
    \`\`\`
 2. Navigate to the project directory:
    \`\`\`bash
@@ -96,6 +47,14 @@ Our platform provides a decentralized and secure environment for patients, resea
    npm start
    \`\`\`
 5. Follow the detailed implementation guide in the documentation to set up and run all components.
+
+| Step                | Description                                                                                                                                                                                                                                 |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **User Registration** | - User creates an account through a decentralized identity system, linking their Ethereum wallet (e.g., MetaMask). <br> - User's Ethereum address and associated metadata are securely stored on-chain or in a decentralized identity registry. |
+| **File Upload**       | - User selects a file to share and uploads it to IPFS, ensuring decentralized and distributed storage. <br> - IPFS node returns a unique IPFS hash for the file. <br> - The dApp interacts with a smart contract to record the IPFS hash and associate it with the user's Ethereum address on-chain. <br> - File metadata (IPFS hash, file name, file type, file size) is managed through decentralized storage solutions, ensuring tamper-proof records. |
+| **Access Request**    | - Another user initiates an access request via the decentralized application (dApp). <br> - The dApp retrieves the IPFS hash and verifies the requester's Ethereum address on-chain. <br> - The smart contract processes the access request by checking the on-chain permissions associated with the file. <br> - If access is denied, the request is recorded on-chain, ensuring transparency, and the file owner is notified through the dApp. |
+| **Access Granting**   | - File owner reviews the access request within the dApp. <br> - The dApp retrieves the requester's details and IPFS hash from the blockchain. <br> - The file owner grants access by interacting with the smart contract, updating the on-chain access control. <br> - The smart contract reflects the updated access permissions, ensuring decentralized access control. |
+| **File Viewing**      | - The requester, now with granted access, views the file through the dApp. <br> - The dApp retrieves the IPFS hash and fetches the file content from the IPFS network. <br> - The file content is displayed securely to the user, leveraging decentralized storage and access protocols. |
 
 ### Contact Us:
 For any queries or feedback, please reach out to us at [piyushjitendra.s22@iiits.in]
