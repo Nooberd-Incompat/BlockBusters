@@ -98,6 +98,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ initialData }) => {
             console.error('Error submitting blog:', error);
         }
     };
+    
     return (
         <div>
             <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">

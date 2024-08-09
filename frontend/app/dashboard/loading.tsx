@@ -1,4 +1,4 @@
-import LoadingComponent from '@/app/components/LoadingSkeliton'
+import LoadingComponent from '@/components/LoadingSkeliton'
 export default function Loading() {
     return(
         <LoadingComponent />
