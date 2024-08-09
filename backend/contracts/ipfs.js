@@ -1,7 +1,7 @@
 const axios = require('axios');
 const FormData = require('form-data');
 
-const IPFS_API_URL = 'http://localhost:5001/api/v0';
+const IPFS_API_URL = 'http://localhost:5003/api/v0';
 
 async function addFile(fileContent) {
     try {

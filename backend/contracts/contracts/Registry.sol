@@ -1,57 +1,52 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Identity.sol";
-
 contract Registry {
-    struct Disease {
-        string name;
+    struct Record {
+        string title;
         string description;
         string ipfsHash;
-        address submitter;
+        address owner;
+        uint256 timestamp;
     }
 
-    mapping(uint256 => Disease) public diseases;
-    uint256 public diseaseCount;
-    Identity identityContract;
+    mapping(uint256 => Record) public records;
+    uint256 public recordCount;
 
-    event DiseaseRegistered(
-        uint256 diseaseId,
-        string name,
+    event RecordAdded(
+        uint256 recordId,
+        string title,
+        string description,
         string ipfsHash,
-        address submitter
+        address owner
     );
 
-    constructor(address _identityContractAddress) {
-        identityContract = Identity(_identityContractAddress);
-    }
-
-    function registerDisease(
-        string memory _name,
+    function addRecord(
+        string memory _title,
         string memory _description,
         string memory _ipfsHash
     ) public {
-        require(identityContract.isAuthorized(msg.sender), "Not authorized");
+        records[recordCount] = Record({
+            title: _title,
+            description: _description,
+            ipfsHash: _ipfsHash,
+            owner: msg.sender,
+            timestamp: block.timestamp
+        });
 
-        diseaseCount++;
-        diseases[diseaseCount] = Disease(
-            _name,
+        emit RecordAdded(
+            recordCount,
+            _title,
             _description,
             _ipfsHash,
             msg.sender
         );
-
-        emit DiseaseRegistered(diseaseCount, _name, _ipfsHash, msg.sender);
+        recordCount++;
     }
 
-    function getDisease(
-        uint256 _diseaseId
-    )
-        public
-        view
-        returns (string memory, string memory, string memory, address)
-    {
-        Disease memory d = diseases[_diseaseId];
-        return (d.name, d.description, d.ipfsHash, d.submitter);
+    function getRecord(uint256 _recordId) public view returns (Record memory) {
+        return records[_recordId];
     }
+
+    // Add any other necessary functions
 }

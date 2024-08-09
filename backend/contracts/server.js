@@ -25,6 +25,27 @@ DataSharing.setProvider(web3.currentProvider);
 app.use(bodyParser.json());
 const upload = multer();
 
+app.post('/register', async (req, res) => {
+    const { isDoctor, metaMaskAddress, ...otherFields } = req.body;
+
+    // Validate and store the MetaMask address along with other user information
+    // Example: Store in a MongoDB database
+
+    const newUser = new User({
+        isDoctor,
+        metaMaskAddress,
+        ...otherFields
+    });
+
+    try {
+        await newUser.save();
+        res.status(201).json({ message: 'User registered successfully!' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error registering user' });
+    }
+});
+
+
 // API Endpoints
 app.post('/registerDisease', upload.none(), async (req, res) => {
     const { name, description, fileContent, fromAddress } = req.body;
